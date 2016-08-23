@@ -83,7 +83,7 @@ LevelBase {
         gameOverTheme.width = colorRainWithCloud.width
         gameOverTheme.height = colorRainWithCloud.height
         colorRainWithCloud.isGameOverVisible(true)
-        updateDBScoreList()
+       // updateDBScoreList()
     }
 
     onIsGameOverVisible: {

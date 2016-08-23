@@ -14,21 +14,21 @@ GameWindow {
     //  * Add plugins to monetize, analyze & improve your apps (available with the Pro Licenses)
     //licenseKey: "<generate one from http://v-play.net/licenseKey>"
 
-    Storage{
-        id:colorRainStorage
+//    Storage{
+//        id:colorRainStorage
 
-        Component.onCompleted: {
-            var previousScores = colorRainStorage.getValue("scoreList");
-            if(previousScores !== undefined){
-                GameInfo.scoreList = previousScores;
-            }
-        }
-    }
+//        Component.onCompleted: {
+//            var previousScores = colorRainStorage.getValue("scoreList");
+//            if(previousScores !== undefined){
+//                GameInfo.scoreList = previousScores;
+//            }
+//        }
+//    }
 
-    function updateDBScoreList(){
-        var thisScore = GameInfo.scoreList;
-        colorRainStorage.setValue("scoreList",GameInfo.scoreList);
-    }
+//    function updateDBScoreList(){
+//        var thisScore = GameInfo.scoreList;
+//        colorRainStorage.setValue("scoreList",GameInfo.scoreList);
+//    }
 
     // create and remove entities at runtime
     EntityManager {
