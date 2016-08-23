@@ -48,13 +48,13 @@ LevelBase {
         }
     }
 
-    CloudBase{
-        id:cloudBase
-        anchors.top:parent.top
-        width: parent.width
-        height: parent.height*0.3
-        anchors.left: parent.left
-    }
+//    CloudBase{
+//        id:cloudBase
+//        anchors.top:parent.top
+//        width: parent.width
+//        height: parent.height*0.3
+//        anchors.left: parent.left
+//    }
 
     ColorRainBase {
         id: colorRainBase

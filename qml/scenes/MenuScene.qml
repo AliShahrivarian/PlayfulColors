@@ -54,13 +54,13 @@ SceneBase {
                 playPressed()
             }
         }
-        MenuButton{
-            text: GameInfo.langScore
-            color:"white"
-            onClicked: {
-                scorePressed()
-            }
-        }
+//        MenuButton{
+//            text: GameInfo.langScore
+//            color:"white"
+//            onClicked: {
+//                scorePressed()
+//            }
+//        }
 
         MenuButton{
             text:GameInfo.langLanguage
