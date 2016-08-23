@@ -10,5 +10,5 @@ In the game you have keys on bottom with 9 color. Top of keys is a line that act
 ### The game is incomplete
 
 
-Framework: [Qt](https://www.qt.io/)
-Game Engine: [V-Play](http://v-play.net/)
+## Framework: [Qt](https://www.qt.io/)
+## Game Engine: [V-Play](http://v-play.net/)
