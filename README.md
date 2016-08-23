@@ -12,4 +12,4 @@ In the game you have keys on bottom with 9 color. Top of keys is a line that act
 
 
 ## Framework: [Qt](https://www.qt.io/)
-## Game Engine: [V-Play](http://v-play.net/)
+## Engine: [V-Play](http://v-play.net/)
