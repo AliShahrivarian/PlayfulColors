@@ -1,10 +1,10 @@
-# ColorRain
+# ColorHitter
 ### The game is incomplete
 
 Simple try on building android game by using V-Play Game Engine.
 
-ColorRain is a simple game about concentration. We are in the world that make us to look and do the repeatitive task and after a while we don't think about what we do.
-ColorRain main idea is about challenging your eyes, brain and your hand to work with eachother so you can't do thing with your habits.
+ColorHitter is a simple game about concentration. We are in the world that make us to look and do the repeatitive task and after a while we don't think about what we do.
+The Game main idea is about challenging your eyes, brain and your hand to work with eachother so you can't do thing with your habits.
 
 ## Get Publish:
 There is just Android(tested on HUAWEI P8Lite <Android 5.0.1> ) and Linux64bit(tested on Ubuntu 16.04) version for now. They stored in publish directory.
