@@ -15,10 +15,10 @@ GameWindow {
     //licenseKey: "<generate one from http://v-play.net/licenseKey>"
 
 //    Storage{
-//        id:colorRainStorage
+//        id:playfulColorsStorage
 
 //        Component.onCompleted: {
-//            var previousScores = colorRainStorage.getValue("scoreList");
+//            var previousScores = playfulColorsStorage.getValue("scoreList");
 //            if(previousScores !== undefined){
 //                GameInfo.scoreList = previousScores;
 //            }
@@ -27,7 +27,7 @@ GameWindow {
 
 //    function updateDBScoreList(){
 //        var thisScore = GameInfo.scoreList;
-//        colorRainStorage.setValue("scoreList",GameInfo.scoreList);
+//        playfulColorsStorage.setValue("scoreList",GameInfo.scoreList);
 //    }
 
     // create and remove entities at runtime
