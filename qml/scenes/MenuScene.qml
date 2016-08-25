@@ -18,30 +18,15 @@ SceneBase {
     // background
     Rectangle {
         anchors.fill: parent.gameWindowAnchorItem
-        color: "white"
+        color: "black"
     }
-    //        Image {
-    //            id: back
-    //            source: "../../assets/colorRain.png"
-    //            anchors.fill: parent
-    //        }
-//    AnimatedBackground{
-//        id:animatedBackground
-//        anchors.fill:parent
-//    }
 
 
-    // the "logo"
-    /*
-        Text {
-            anchors.horizontalCenter: parent.horizontalCenter
-            y: 30
-            font.pixelSize: 30
-            color: "#e9e9e9"
-            text: "Color Dance"
-        }*/
+    AnimatedBackground{
+        id:animatedBackground
+        anchors.fill: parent
+    }
 
-    // menu
     Column {
         anchors.centerIn: parent
         spacing: 10

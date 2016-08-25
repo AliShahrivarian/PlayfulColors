@@ -6,15 +6,19 @@ import ".."
 Item {
 
     id: animatedBackground
-    anchors.fill: parent
 
-    ColorRainBase{
-        id:colorRainBase
+
+    ColorGrid{
+        id: menuBackground
         anchors.fill: parent
-        entManager: entityManagerForAnime
-    }
-
-    Component.onCompleted: {
-        GameInfo.showAnimation = true;
+        Timer{
+            interval: 500
+            running: true
+            triggeredOnStart: true
+            repeat: true
+            onTriggered: {
+                menuBackground.changeColorPressed();
+            }
+        }
     }
 }
