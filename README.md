@@ -4,7 +4,8 @@
 Playful Colors is a simple game about concentration. We are in the world that make us to look and do the repeatitive task and after a while we don't think about what we do.
 The Game main idea is about challenging your eyes, brain and your hand to work with eachother so you can't do thing with your habits.
 
-
+### Download:
+[Android apk](https://github.com/AliShahrivarian/PlayfulColors/blob/master/publish/android/PlayfulColors.apk)
 
 ### Images: 
 ![Main menu](https://github.com/AliShahrivarian/PlayfulColors/blob/master/gitImages/mainMenu.png)
