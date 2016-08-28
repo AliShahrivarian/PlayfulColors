@@ -1,15 +1,15 @@
+
 import VPlay 2.0
 import QtQuick 2.0
-import "../common"
 import ".."
-// EMPTY SCENE
+import "../common"
 
 SceneBase {
 
-    id:selectLevelScene
+    id: gameHelpScene
 
-    // signal indicating that a level has been selected
-    signal levelPressed(string selectedLevel)
+    property string activeHelpFileName:""
+
     Rectangle{
         anchors.fill: parent
         color:"white"
@@ -21,7 +21,7 @@ SceneBase {
                 textColor: "white"
                 color: "blue"
                 onClicked: {
-                    levelPressed("ColorRoad.qml");
+                    activeHelpFileName = "ColorRoadHelp.qml"
                 }
             }
             MenuButton {
@@ -29,7 +29,7 @@ SceneBase {
                 textColor: "white"
                 color: "blue"
                 onClicked: {
-                    levelPressed("LightBoard.qml");
+                    activeHelpFileName = "LightBoardHelp.qml"
                 }
             }
             MenuButton{
@@ -37,8 +37,7 @@ SceneBase {
                 textColor:"white"
                 color:"blue"
                 onClicked: {
-                    GameInfo.rainedColors = [];
-                    levelPressed("ColorRainWithClouds.qml");
+                    activeHelpFileName = "ColorRainWithCloudsHelp.qml"
                 }
             }
             MenuButton{
@@ -52,4 +51,22 @@ SceneBase {
         }
 
     }
+
+    Loader {
+        id: loader
+        source: activeHelpFileName ? "../helps/" + activeHelpFileName : ""
+        anchors.fill: parent
+        visible:false
+        onLoaded: {
+            loader.visible = true;
+        }
+    }
+
+    Connections{
+        target: loader.item
+        onBtnBackPressed:{
+            gameHelpScene.activeHelpFileName = ""
+        }
+    }
+
 }

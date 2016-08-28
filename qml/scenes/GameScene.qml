@@ -11,51 +11,38 @@ SceneBase {
     // filename of the current level
     property string activeLevelFileName
     // currently loaded level
-//    property var activeLevel
+    property var activeLevel
     // countdown shown at level start
     property int countdown: 0
-//    property alias loader: loader
+    property alias loader: loader
 
     // set the name of the current level, this will cause the Loader to load the corresponding level
     function setLevel(fileName) {
         activeLevelFileName = fileName
     }
 
-    function prepareGame() {
-//        activeLevel = item
-        // restarts the countdown
-        GameInfo.gameOver = false
-        countdown = 3
-        GameInfo.gamePaused = true
-        GameInfo.point = 0
-        GameInfo.gameTimer = 60
-        GameInfo.rainedColors = []
-        colorRainWithClouds.pointReset()
-        colorRainWithClouds.isGameOverVisible(false)
+    Connections{
+        target: GameInfo
+        onActiveLevelFileNameChanged:{
+            activeLevelFileName = GameInfo.activeLevelFileName
+        }
     }
 
-    ColorRainWithClouds {
-        id: colorRainWithClouds
+    //     load levels at runtime
+    Loader {
+        id: loader
+        source: activeLevelFileName ? "../levels/" + activeLevelFileName : ""
         anchors.fill: parent
-        onBtnBackToMainMenuClicked: backButtonPressed()
-        onBtnRetryClicked: prepareGame()
+        onLoaded: {
+            // store the loaded level as activeLevel for easier access
+            activeLevel = item
+            // restarts the countdown
+            countdown = 3
+            GameInfo.gamePaused = true
+            GameInfo.point = 0
+            GameInfo.gameTimer = 60
+        }
     }
-
-    // load levels at runtime
-    //    Loader {
-    //        id: loader
-    //        source: activeLevelFileName ? "../levels/" + activeLevelFileName : ""
-    //        anchors.fill: parent
-    //        onLoaded: {
-    //            // store the loaded level as activeLevel for easier access
-    //            activeLevel = item;
-    //            // restarts the countdown
-    //            countdown = 3;
-    //            GameInfo.gamePaused = true;
-    //            GameInfo.point = 0;
-    //            GameInfo.gameTimer = 60;
-    //        }
-    //    }
 
     // text displays either the countdown or ""
     Rectangle {

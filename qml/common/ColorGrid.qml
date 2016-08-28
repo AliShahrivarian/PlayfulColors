@@ -40,6 +40,7 @@ Item {
 
             Rectangle{
                 property int thisIndx:index
+                property string thisColorName :""
                 width: parent.width*thisGrid.repeaterSizePerc
                 height: parent.height*thisGrid.repeaterSizePerc
                 radius: 5
@@ -48,25 +49,26 @@ Item {
                 border.color: "white"
                 //color:menuScene.backColors[Math.round((Math.random()*100)%5)]
                 Component.onCompleted: {
-                    this.color = GameInfo.colors[Math.floor((Math.random()*100)%GameInfo.colors.length)];
+                    this.thisColorName = GameInfo.colors[Math.floor((Math.random()*GameInfo.colors.length))];
+                    this.color = this.thisColorName;
                 }
                 onOpacityChanged: {
                     if(this.opacity == 1){
-                        colorGrid.colorChanged(this.color);
-                        thisGrid.selectedColor = this.color;
+                        colorGrid.colorChanged(this.thisColorName);
+                        thisGrid.selectedColor = this.thisColorName;
                     }
                 }
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: {
-                        if(parent.opacity == 1){
-                            colorGrid.correctColorPressed();
-                            colorGrid.changeColorPressed();
-                        }else{
-                            colorGrid.wrongColorPressed();
-                        }
-                    }
-                }
+//                MouseArea{
+//                    anchors.fill: parent
+//                    onClicked: {
+//                        if(parent.opacity == 1){
+//                            colorGrid.correctColorPressed();
+//                            colorGrid.changeColorPressed();
+//                        }else{
+//                            colorGrid.wrongColorPressed();
+//                        }
+//                    }
+//                }
             }
         }
     }

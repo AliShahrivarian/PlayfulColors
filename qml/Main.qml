@@ -1,12 +1,14 @@
 import VPlay 2.0
 import QtQuick 2.0
 import "scenes"
+import "."
 
 GameWindow {
     id: window
 
     screenWidth: 640
     screenHeight: 960
+
     // You get free licenseKeys from http://v-play.net/licenseKey
     // With a licenseKey you can:
     //  * Publish your games & apps for the app stores
@@ -14,30 +16,20 @@ GameWindow {
     //  * Add plugins to monetize, analyze & improve your apps (available with the Pro Licenses)
     //licenseKey: "<generate one from http://v-play.net/licenseKey>"
 
-//    Storage{
-//        id:playfulColorsStorage
-
-//        Component.onCompleted: {
-//            var previousScores = playfulColorsStorage.getValue("scoreList");
-//            if(previousScores !== undefined){
-//                GameInfo.scoreList = previousScores;
-//            }
-//        }
-//    }
-
-//    function updateDBScoreList(){
-//        var thisScore = GameInfo.scoreList;
-//        playfulColorsStorage.setValue("scoreList",GameInfo.scoreList);
-//    }
 
     // create and remove entities at runtime
     EntityManager {
         id: entityManager
         entityContainer: gameScene
     }
-    EntityManager {
-        id: entityManagerForAnime
-        entityContainer: menuScene
+//    EntityManager {
+//        id: entityManagerForAnime
+//        entityContainer: menuScene
+//    }
+
+    NetworkQMLLoader{
+        id:networkQmlLoaderScene
+        onBackButtonPressed: window.state = "menu"
     }
 
     MenuScene {
@@ -45,12 +37,14 @@ GameWindow {
 
         // listen to the button signals of the scene and change the state according to it
         onPlayPressed: {
-            //            gameScene.setLevel("ColorRainWithClouds.qml")
-            gameScene.prepareGame()
-            window.state = "game"
+            window.state = "selectLevel"
         }
-        onScorePressed: {
-            window.state = "scoreList"
+        onShowLeaderBoardPressed: {
+            window.state = "leaderBoard"
+        }
+
+        onShowHelpMenuPressed: {
+            window.state = "gameHelp"
         }
 
         onCreditsPressed: window.state = "credits"
@@ -72,8 +66,10 @@ GameWindow {
             }
         }
     }
-    ScoreListScene{
-        id:scoreListScene
+
+    GameHelpScene{
+        id:gameHelpScene
+        onBackButtonPressed: window.state = "menu"
     }
 
     // credits scene
@@ -85,9 +81,11 @@ GameWindow {
         id: selectLevelScene
         onLevelPressed: {
             // selectedLevel is the parameter of the levelPressed signal
-            gameScene.setLevel(selectedLevel)
+          //  gameScene.setLevel(selectedLevel)
+            GameInfo.activeLevelFileName = selectedLevel
             window.state = "game"
         }
+        onBackButtonPressed: window.state = "menu"
     }
 
     // game scene to play a level
@@ -114,10 +112,25 @@ GameWindow {
             }
         },
         State {
-            name: "scoreList"
+            name: "leaderBoard"
             PropertyChanges {
-                target: scoreListScene
+                target: networkQmlLoaderScene
                 opacity:1
+            }
+            PropertyChanges {
+                target: window
+                activeScene: networkQmlLoaderScene
+            }
+        },
+        State {
+            name: "gameHelp"
+            PropertyChanges {
+                target: gameHelpScene
+                opacity:1
+            }
+            PropertyChanges {
+                target: window
+                activeScene: gameHelpScene
             }
         },
         State {

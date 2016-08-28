@@ -7,6 +7,7 @@ Item {
     id: gameOver
 
     signal btnRetryClicked
+    signal btnBackToLevelSelectClicked
     signal btnBackToMenuClicked
 
     Rectangle {
@@ -29,6 +30,13 @@ Item {
                 textColor: "black"
                 color: "white"
                 onClicked: gameOver.btnRetryClicked()
+            }
+            MenuButton {
+                id: btnBackToLevelSelect
+                text: GameInfo.langLevelSelect
+                textColor: "black"
+                color: "white"
+                onClicked: gameOver.btnBackToLevelSelectClicked()
             }
             MenuButton {
                 id: btnBackToMenu
