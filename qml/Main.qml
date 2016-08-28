@@ -45,6 +45,7 @@ GameWindow {
 
         onShowHelpMenuPressed: {
             window.state = "gameHelp"
+            gameHelpScene.activeHelpFileName=""
         }
 
         onCreditsPressed: window.state = "credits"

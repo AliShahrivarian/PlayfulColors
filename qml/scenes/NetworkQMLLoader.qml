@@ -23,7 +23,7 @@ import "../"
 
     Loader {
         id: loader
-        //source:  "NetworkImpl.qml"
+        source:  "NetworkImpl.qml"
         anchors.fill: parent
         onLoaded: {
             networkQmlLoaderBackBtn.visible=false
